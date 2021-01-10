@@ -26,7 +26,7 @@ let s = new Search();
 
 ReactDOM.render(<Search/>, document.getElementById('block_search'));
 ReactDOM.render(<ListBoard/>, document.getElementById('block_list_boards'));
-ReactDOM.render(<ListColumns name_board={"название из пропса"}/>, document.getElementById('list_columns'));
+ReactDOM.render(<ListColumns name_board={"название из пропсов"}/>, document.getElementById('list_columns'));
 
 
 

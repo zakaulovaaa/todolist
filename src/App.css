@@ -76,6 +76,9 @@ header {
     display: flex;
     justify-content: center;
 }
+.add_board:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
 
 .description_board {
     color: rgb(100, 100, 100);
@@ -88,7 +91,53 @@ header {
     color: #075FA2;
 }
 
+.filter {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 50px;
+}
+.filter_left,
+.filter_right {
+    display: flex;
+    justify-content: flex-end;
+}
+.filter_elem {
+    margin: 15px;
+}
 
+.block_column {
+    display: flex;
+    overflow: scroll;
+    padding-right: 10px;
+}
+
+.column {
+    width: 300px;
+    min-width: 300px;
+    min-height: 200px;
+    border-right: 1px solid black;
+}
+
+.column_name {
+    text-align: center;
+}
+
+.add_column {
+    width: 290px;
+    min-width: 290px;
+    margin: 5px;
+    min-height: 600px;
+    display: flex;
+    justify-content: center;
+}
+
+.add_column:hover {
+    /*background-color: rgba(7, 96, 162, 0.5);*/
+    background-color: rgba(0, 172, 98, 0.2);
+    margin: 5px;
+    border-radius: 10px;
+}
 
 
 
