@@ -16,7 +16,7 @@ class ListColumns extends React.Component {
                 <h2 className={'h2-board_name'}>{this.props.name_board}</h2>
                 <Filter/>
 
-                <div class={"block_column"}>
+                <div className={"block_column"}>
                     <Column column_name={"col 1"}/>
                     <Column column_name={"col 2"}/>
                     <Column column_name={"col 3"}/>

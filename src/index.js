@@ -18,15 +18,36 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Popup from "./components/Popup";
+import MainApp from "./components/MainApp";
+import ConfettiGenerator from "confetti-js";
 
 
 let s = new Search();
     //require("./components/Search.jsx");
     //require('components/Search.jsx');
 
-ReactDOM.render(<Search/>, document.getElementById('block_search'));
-ReactDOM.render(<ListBoard/>, document.getElementById('block_list_boards'));
-ReactDOM.render(<ListColumns name_board={"название из пропсов"}/>, document.getElementById('list_columns'));
+let listBoard = [
+    {
+        index: 1,
+        name: "Название 1",
+        description: "Описание описание описание описание описание"
+    },
+    {
+        index: 2,
+        name: "Название 2",
+        description: "Описание описание описание описание описание"
+    }
+];
+
+ReactDOM.render(<MainApp initItems={listBoard}/>, document.getElementById("app"));
+//
+// ReactDOM.render(<Search/>, document.getElementById('block_search'));
+// ReactDOM.render(<ListBoard/>, document.getElementById('block_list_boards'));
+// ReactDOM.render(<ListColumns name_board={"название из пропсов"}/>, document.getElementById('list_columns'));
+//
+
+
 
 
 
@@ -307,7 +328,7 @@ class My_popap extends React.Component {
     }
 
     new_task( event ) {
-        if (this.state.input_description == '') {
+        if (this.state.input_description === '') {
             alert("Поле \"Описание\" обязательно для заполнения");
         } else {
             if ( this.props.is_new_ ) {
@@ -315,10 +336,10 @@ class My_popap extends React.Component {
                     this.state.input_date, "-" ) );
             } else {
                 rows_task[this.props.id]['description_'] = this.state.input_description;
-                if (rows_task[this.props.id]['status_'] == 'Завершено' && st_ == 'Завершено') {
+                if (rows_task[this.props.id]['status_'] === 'Завершено' && st_ === 'Завершено') {
 
                 } else {
-                    if (st_ == 'Завершено') {
+                    if (st_ === 'Завершено') {
                         rows_task[this.props.id]['date2'] = now_date();
                     } else {
                         rows_task[this.props.id]['date2'] = '-';
@@ -368,7 +389,8 @@ class My_popap extends React.Component {
                     </div>
                     <div className="deadline">
                         <p>Крайний срок:</p>
-                        <input type="date" id="date" value={ this.state.input_date } onChange={ this.handleChangeInputDate }></input>
+                        <input type="date" id="date" value={ this.state.input_date } onChange={ this.handleChangeInputDate }>
+                        </input>
                     </div>
                     <p className="for_potap_btn">
                         <button className="popap_btn" onClick={ this.new_task } >Сохранить</button>
@@ -384,13 +406,13 @@ function update_statistic() {
     document.getElementById( 'statistic_all_task' ).textContent = 'Всего - ' + rows_task.length;
     let cnt_new = 0, cnt_in_work = 0, cnt_finish = 0;
     for (let i = 0; i < rows_task.length; i++) {
-        if (rows_task[i]['status_'] == 'Новая') {
+        if (rows_task[i]['status_'] === 'Новая') {
             cnt_new++;
         }
-        if (rows_task[i]['status_'] == 'В работе') {
+        if (rows_task[i]['status_'] === 'В работе') {
             cnt_in_work++;
         }
-        if (rows_task[i]['status_'] == 'Завершено') {
+        if (rows_task[i]['status_'] === 'Завершено') {
             cnt_finish++;
         }
     }

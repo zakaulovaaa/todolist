@@ -6,11 +6,11 @@ class Search extends React.Component {
     }
 
     render() {
-        return(
-            <input placeholder="поиск" id="input_search"/>
-
-
-            );
+        return (
+            <div id="block_search">
+                <input placeholder="поиск" id="input_search"/>
+            </div>
+        );
     }
 }
 

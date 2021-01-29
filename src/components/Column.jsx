@@ -10,10 +10,9 @@ class Column extends React.Component {
 
     render() {
         return(
-            <div class={"column"}>
-                <h3 class={'column_name'}>{this.props.column_name}</h3>
+            <div className={"column"}>
+                <h3 className={'column_name'}>{this.props.column_name}</h3>
             </div>
-
         );
     }
 }
